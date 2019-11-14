@@ -1,0 +1,29 @@
+{
+  "name": "yandex-tank-ammo-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "copyData": "cp package.json ./dist/package.json && cp ./README.md  ./dist/README.md ",
+    "executable": "chmod +x ./dist/*.js",
+    "build": "rm -rf ./dist && ./node_modules/.bin/tsc && cp package.json ./dist/package.json",
+    "pub": "npm run build && npm run copyData &&  cd ./dist  && npm publish ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "testInstall": "npm run build &&  sudo npm i -g ./dist/"
+  },
+  "bin": {
+    "ammo-generator": "./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^11.13.18",
+    "typescript": "^3.7.2",
+    "ts-node": "^7.0.0"
+  },
+  "dependencies": {
+    "@hapi/joi": "^16.1.7",
+    "commander": "^4.0.1",
+    "yargs": "^14.2.0"
+  }
+}
