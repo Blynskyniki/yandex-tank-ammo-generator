@@ -1,0 +1,18 @@
+181
+POST /ecommerce/goods/eshop/catalog HTTP/1.1
+Host: i-dev.api.qq.com
+User-Agent: Yandex-Tank-Dev
+Content-Type: application/json
+Content-Length: 33
+
+{"filters":{},"size":24,"page":1}
+
+165
+GET /catalog/zhenshchinam/zhenskaya-obuv/?opt=all HTTP/1.1
+Host: i-dev.api.qq.com
+User-Agent: Yandex-Tank-Dev
+Content-Type: application/json
+Content-Length: 4
+
+null
+
