@@ -1,27 +1,14 @@
 #!/usr/bin/env node
 import * as fs from 'fs';
-import * as url from 'url';
 import { createAmmo } from './lib/ammo';
 import exampleFile from './lib/exampleFile';
-const Joi = require('@hapi/joi');
-const program = require('commander');
-const schema = Joi.object({
-  name: Joi.string().required(),
-  host: Joi.string().required(),
-  data: Joi.array().items(
-    Joi.object({
-      method: Joi.string().required(),
-      body: [Joi.string().optional(), Joi.allow(null)],
-      path: Joi.string().required(),
-    }),
-  ),
-});
+import * as program from 'commander';
+import schema from './lib/schema';
 program
   .option('-u,--user-agent <agent>', 'UserAgent')
   .option('-f,--file <file>', 'Special format file ')
   .option('-o <out>', 'Out filename')
-
-  .option('-e,--example', 'Create example special format file ')
+  .option('-e,--example', 'Create example json file ')
   .parse(process.argv);
 
 let agent: string = 'Yandex-Tank-Dev';
@@ -53,9 +40,8 @@ if (program.file) {
   const filename = `${process.env.PWD}/${program.O ? program.O : file.host}`;
 
   fs.writeFileSync(filename, tmp);
-  console.log('File', file);
-  console.log('Result', filename);
+  console.log('Result =====> ', filename);
   process.exit(0);
 }
-console.log('Bad arguments');
-process.exit(1);
+
+program.help();
