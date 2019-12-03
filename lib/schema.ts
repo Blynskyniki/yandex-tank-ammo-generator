@@ -5,6 +5,7 @@ export default Joi.object({
   host: Joi.string().required(),
   data: Joi.array().items(
     Joi.object({
+      headers:Joi.object().optional(),
       method: Joi.string().required(),
       body: [Joi.string().optional(), Joi.allow(null)],
       path: Joi.string().required(),

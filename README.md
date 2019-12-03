@@ -13,11 +13,11 @@ ammo-generator --help
 ```
 Usage: ammo-generator [options] 
 
-Options: \
+Options:\
   -u,--user-agent <agent>  UserAgent\
-  -f,--file <file>         Special format file \
+  -f,--file <file>         Special json file \
   -o <out>                 Out filename\
-  -e,--example             Create example special format file \
+  -e,--example             Create example json file \
   -h, --help               output usage information\
 ```
  ammo-generator -e 

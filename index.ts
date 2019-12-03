@@ -35,12 +35,11 @@ if (program.file) {
   }
   let tmp = '';
   for (const item of file.data) {
-    tmp += createAmmo(item.method.toUpperCase().trim(), file.host, item.path, agent, JSON.stringify(item.body));
+    tmp += createAmmo(item.method.toUpperCase().trim(), file.host, item.path, agent, JSON.stringify(item.body),item.headers||{});
   }
-  const filename = `${process.env.PWD}/${program.O ? program.O : file.host}`;
-
-  fs.writeFileSync(filename, tmp);
+  const filename = `${process.env.PWD}/${program.O ? program.O : `${file.host}.txt`}`;
   console.log('Result =====> ', filename);
+  fs.writeFileSync(filename, tmp);
   process.exit(0);
 }
 
