@@ -11,9 +11,9 @@ program
   .option('-e,--example', 'Create example json file ')
   .parse(process.argv);
 
-let agent: string = 'Yandex-Tank-Dev';
-if (program.agent) {
-  agent = program.agent;
+let agent: string = 'Yandex-Tank';
+if (program.userAgent) {
+  agent = program.userAgent;
 }
 
 if (program.example) {
