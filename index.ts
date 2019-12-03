@@ -35,7 +35,7 @@ if (program.file) {
   }
   let tmp = '';
   for (const item of file.data) {
-    tmp += createAmmo(item.method.toUpperCase().trim(), file.host, item.path, agent, JSON.stringify(item.body),item.headers||{});
+    tmp += createAmmo(item.method.toUpperCase().trim(), file.host, item.path,item.tag, agent, JSON.stringify(item.body),item.headers||{});
   }
   const filename = `${process.env.PWD}/${program.O ? program.O : `${file.host}.txt`}`;
   console.log('Result =====> ', filename);

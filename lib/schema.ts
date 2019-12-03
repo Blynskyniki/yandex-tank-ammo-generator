@@ -7,6 +7,7 @@ export default Joi.object({
     Joi.object({
       headers:Joi.object().optional(),
       method: Joi.string().required(),
+      tag: Joi.string(),
       body: [Joi.string().optional(), Joi.allow(null)],
       path: Joi.string().required(),
     }),

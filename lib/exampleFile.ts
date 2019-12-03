@@ -4,6 +4,10 @@ export default {
   data: [
     {
       method: 'post',
+      headers:{
+        'auth':'true'
+      },
+      tag:'supertest',
       body: {
         filters: {},
 

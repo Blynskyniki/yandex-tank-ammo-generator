@@ -1,7 +1,6 @@
-import * as fs from 'fs';
-export function createAmmo(method: string, host: string, path: string, agent: string, body: string,headers): string {
+export function createAmmo(method: string, host: string, path: string,tag:string, agent: string, body: string,headers): string {
   function getBytes(string) {
-    return string.length;
+    return  Buffer.from(string).length
   }
 
   let tmpFile = '';
@@ -9,7 +8,7 @@ export function createAmmo(method: string, host: string, path: string, agent: st
   tmpFile += `${method.toUpperCase().trim()} ${path} HTTP/1.1\n`;
   tmpFile += `Host: ${host}\n`;
   tmpFile += `User-Agent: ${agent}\n`;
-  tmpFile += `Content-Type: application/json\n`;
+  tmpFile += `Content-Type: application/json; charset=utf-8\n`;
   const headersKeys = Object.keys(headers);
   if(headersKeys.length){
     for(const item of headersKeys){
@@ -21,11 +20,13 @@ export function createAmmo(method: string, host: string, path: string, agent: st
     case 'DELETE':
     case 'PUT':
     case 'POST': {
-      tmpFile += `Content-Length: ${body.length}\n\r\n`;
+
+      tmpFile += `Content-Length: ${getBytes(body)}\n\r\n`;
       tmpFile += body;
       break;
     }
   }
 
-  return `${getBytes(tmpFile.trim())}\n` + tmpFile.trim() + '\n\r\n';
+  console.log('enc =>> ','orig ===>',tmpFile.length)
+  return `${getBytes(tmpFile)+1} ${tag||''} \n`+ tmpFile + '\n\r\n';
 }
