@@ -37,7 +37,7 @@ if (program.file) {
   for (const item of file.data) {
     tmp += createAmmo(item.method.toUpperCase().trim(), file.host, item.path,item.tag, agent, JSON.stringify(item.body),item.headers||{});
   }
-  const filename = `${process.env.PWD}/${program.O ? program.O : `${file.host}.txt`}`;
+  const filename = `${process.env.PWD||'.'}/${program.O ? program.O : `${file.host}.txt`}`;
   console.log('Result =====> ', filename);
   fs.writeFileSync(filename, tmp);
   process.exit(0);
