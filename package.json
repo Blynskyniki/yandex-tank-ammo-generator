@@ -1,6 +1,6 @@
 {
   "name": "yandex-tank-ammo-generator",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "Cartridge generation for Yandex tank",
   "main": "index.js",
   "homepage": "https://github.com/Blynskyniki/yandex-tank-ammo-generator#readme",

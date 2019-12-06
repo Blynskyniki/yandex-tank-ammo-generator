@@ -5,7 +5,7 @@ export function createAmmo(method: string, host: string, path: string,tag:string
 
   let tmpFile = '';
 
-  tmpFile += `${method.toUpperCase().trim()} ${path} HTTP/1.1\n`;
+  tmpFile += `${method.toUpperCase().trim()} ${encodeURI(path)} HTTP/1.1\n`;
   tmpFile += `Host: ${host}\n`;
   tmpFile += `User-Agent: ${agent}\n`;
   tmpFile += `Content-Type: application/json; charset=utf-8\n`;
