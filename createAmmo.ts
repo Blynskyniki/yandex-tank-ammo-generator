@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 import * as fs from 'fs';
-import { createAmmo } from './lib/ammo';
-import exampleFile from './lib/exampleFile';
+import { createAmmo } from './lib/AmmoGenerator/ammo';
+import exampleFile from './lib/AmmoGenerator/exampleFile';
 import * as program from 'commander';
-import schema from './lib/schema';
+import schema from './lib/AmmoGenerator/ammoConfJsonShema';
 program
   .option('-u,--user-agent <agent>', 'UserAgent')
   .option('-f,--file <file>', 'Special format file ')

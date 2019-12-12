@@ -1,0 +1,22 @@
+{
+  "host": "i-dev.api.kari.com",
+  "index": "kari_prod_275",
+  "auth": "",
+  "limit": 15,
+  "query": {
+    "sort": {
+      "field": "responseTime",
+      "type": "DESC"
+    }
+  },
+  "routes": [
+    {
+      "route": "/ecommerce/goods/eshop/productsCard",
+      "method": "post"
+    },
+    {
+      "route": "/ecommerce/goods/eshop/catalog",
+      "method": "post"
+    }
+  ]
+}

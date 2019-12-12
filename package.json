@@ -14,7 +14,8 @@
     "testRm": "sudo npm rm -g ./dist"
   },
   "bin": {
-    "ammo-generator": "./index.js"
+    "tank-ammo-generator": "./createAmmo.js",
+    "tank-get-data": "./getElasticData.js"
   },
   "keywords": [
     "yandex",
@@ -29,11 +30,14 @@
   "devDependencies": {
     "@types/node": "^11.15.3",
     "ts-node": "^7.0.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "@types/hapi__joi": "=15.0.2"
   },
   "dependencies": {
-    "@hapi/joi": "^16.1.7",
-    "@types/joi": "^14.3.4",
-    "commander": "^4.0.1"
+    "@elastic/elasticsearch": "^7.5.0",
+    "@hapi/joi": "=15.1.0",
+    "commander": "^4.0.1",
+    "pino": "^5.14.0",
+    "pino-pretty": "^3.5.0"
   }
 }
