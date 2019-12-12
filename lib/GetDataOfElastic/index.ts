@@ -1,7 +1,7 @@
 import * as Joi from '@hapi/joi';
 import * as fs from 'fs';
 import { ElasticClient } from '../ElasticClient';
-import { IFindTypes, QueryBuilder } from '../ElasticClient/QueryBuilder';
+import { IFindTypes, QueryBuilder, SortTypes } from '../ElasticClient/QueryBuilder';
 export interface IMethod {
   method: string;
   route: string;
@@ -100,11 +100,9 @@ export default async function(data: IConfigShema) {
 
   const filename = `${data.host}_${new Date().toISOString()}`;
 
-
   return {
     name: filename,
     host: data.host,
     data: responseArr,
   };
-
 }

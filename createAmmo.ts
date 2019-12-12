@@ -35,10 +35,20 @@ if (program.file) {
   }
   let tmp = '';
   for (const item of file.data) {
-    tmp += createAmmo(item.method.toUpperCase().trim(), file.host, item.path,item.tag, agent, JSON.stringify(item.body),item.headers||{});
+    tmp += createAmmo(
+      item.method.toUpperCase().trim(),
+      file.host,
+      item.path,
+      item.tag,
+      agent,
+      JSON.stringify(item.body),
+      item.headers || {},
+    );
   }
-  const filename = `${process.env.PWD||'.'}/${program.O ? program.O : `${file.host}.txt`}`;
-  console.log('Result =====> ', filename);
+
+  const filename = `${process.env.PWD || '.'}/${program.O ? program.O : `${file.host}.txt`}`;
+  console.log(`Результаты сохранены в ${program.out || file.name}`);
+  console.log(`Колличество запросов === ${file.data.length}`);
   fs.writeFileSync(filename, tmp);
   process.exit(0);
 }

@@ -1,6 +1,6 @@
 {
   "name": "yandex-tank-ammo-generator",
-  "version": "1.0.10",
+  "version": "1.1.1",
   "description": "Cartridge generation for Yandex tank",
   "main": "index.js",
   "homepage": "https://github.com/Blynskyniki/yandex-tank-ammo-generator#readme",
@@ -14,8 +14,9 @@
     "testRm": "sudo npm rm -g ./dist"
   },
   "bin": {
-    "tank-ammo-generator": "./createAmmo.js",
-    "tank-get-data": "./getElasticData.js"
+    "tank-create-ammo": "./createAmmo.js",
+    "tank-gen-test-data": "./getElasticData.js",
+    "tank-gen-ammo": "./getElasticDataAndCreateAmmo.js"
   },
   "keywords": [
     "yandex",
