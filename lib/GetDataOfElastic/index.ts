@@ -1,5 +1,3 @@
-import * as Joi from '@hapi/joi';
-import * as fs from 'fs';
 import { ElasticClient } from '../ElasticClient';
 import { IFindTypes, QueryBuilder, SortTypes } from '../ElasticClient/QueryBuilder';
 export interface IMethod {
@@ -62,7 +60,7 @@ export default async function(data: IConfigShema) {
           case 'post': {
             return {
               path: obj.path,
-              tag: obj.route,
+              tag: `POST_${obj.route}`,
               body: obj.requestPayload,
               method: 'POST',
               headers: {
@@ -83,7 +81,7 @@ export default async function(data: IConfigShema) {
             const url = `${obj.path}${uri}`;
             return {
               path: url,
-              tag: obj.route,
+              tag: `GET_${obj.route}`,
               body: null,
               method: 'GET',
               headers: {
@@ -93,7 +91,6 @@ export default async function(data: IConfigShema) {
           }
         }
       });
-      console.log('Route : ', item.route, '---->', preparedData.length);
       responseArr.push(...preparedData);
     }
   }

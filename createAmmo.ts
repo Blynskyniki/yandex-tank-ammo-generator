@@ -46,7 +46,7 @@ if (program.file) {
     );
   }
 
-  const filename = `${process.env.PWD || '.'}/${program.O ? program.O : `${file.host}.txt`}`;
+  const filename = `${process.env.PWD || '.'}/${program.O ? program.O : `${file.host}`}.txt`;
   console.log(`Результаты сохранены в ${program.out || file.name}`);
   console.log(`Колличество запросов === ${file.data.length}`);
   fs.writeFileSync(filename, tmp);

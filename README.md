@@ -1,33 +1,43 @@
-# Генератор патронов для  [яндекс танка](https://github.com/yandex/yandex-tank)
+# Генератор патронов для [яндекс танка](https://github.com/yandex/yandex-tank)
+
 ## Настройка танка
+
 ```
 phantom:
   address: ya.ru:443
   ssl: true
   header_http: '1.1'
-  ammofile: ./ammo.txt 
+  ammofile: ./ammo.txt
   load_profile:
     load_type: rps # schedule load by defining requests per second
-    schedule: line(20, 450, 1m) #const(150, 60) 
+    schedule: line(20, 450, 1m) #const(150, 60)
 ```
-##### Тип патронов 
+
+##### Тип патронов
+
 ###### ammo-type : Request-style
+
 ###### YAML-file configuration: phantom
 
 ## Установка
 
-```js
+```bash
 npm i -g yandex-tank-ammo-generator
 
 ```
-## Как пользоваться 
+
+## Как пользоваться :
+
 ```
 tank-gen-test-data --help <--- Генератор тестовых данных из ELASTIC(Graylog,ELK)
-tank-create-ammo--help  <----- Генератор патронов из json 
+tank-create-ammo--help  <----- Генератор патронов из json
 tank-gen-ammo--help <--------- Генератор патронов из ELASTIC(Graylog,ELK)
 ```
 
-#### Пример конфига для tank-gen-test-data  и tank-gen-ammo
+###### **При создании файлов расширение будет установлено автоматически**
+
+#### Пример конфига для tank-gen-test-data и tank-gen-ammo
+
 ```
 {
   "host": "хост в заголовках запросов",
@@ -54,10 +64,10 @@ tank-gen-ammo--help <--------- Генератор патронов из ELASTIC(
     }
   ]
 }
-
-
 ```
+
 #### Пример конфига для tank-create-ammo
+
 ```
 {
   "name": "Мой Пак Патронов",
