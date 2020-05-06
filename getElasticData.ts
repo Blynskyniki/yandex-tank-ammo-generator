@@ -23,9 +23,9 @@ program
       }
       const res = await GetDataOfElastic(file);
 
-      console.log(`Результаты сохранены в ${program.out || res.name}`);
+      console.log(`Результаты сохранены в ${program.O || res.name}`);
       console.log(`Колличество запросов === ${res.data.length}`);
-      fs.writeFileSync(`${process.env.PWD || './'}/${program.out || res.name}.json`, JSON.stringify(res, null, 2));
+      fs.writeFileSync(`${process.env.PWD || './'}/${program.O || res.name}.json`, JSON.stringify(res, null, 2));
       process.exit(0);
     }
     program.help();
