@@ -22,7 +22,7 @@ export interface IConfigShema {
   };
   routes: IMethod[];
 }
-export default async function(data: IConfigShema) {
+export default async function (data: IConfigShema) {
   process.env.SEARCH_INDEX = data.index;
   process.env.ELASTIC_URI = data.elastic.uri;
   if (data.elastic.auth) {
@@ -38,8 +38,8 @@ export default async function(data: IConfigShema) {
     query
       .addMatch(IFindTypes.MUST, 'route', item.route)
       .addMatch(IFindTypes.MUST, 'statusCode', 200)
-      .addMatch(IFindTypes.MUST, 'method', item.method.toLowerCase())
-      .addMatch(IFindTypes.MUST, 'headers_host', data.host.trim());
+      .addMatch(IFindTypes.MUST, 'method', item.method.toLowerCase());
+    // .addMatch(IFindTypes.MUST, 'headers_host', data.host.trim());
 
     query.sort({
       [`${data.query.sort.field}`]: {
@@ -51,9 +51,10 @@ export default async function(data: IConfigShema) {
       size: data.limit,
       _source: ['path', 'method', 'route', 'headers_authorization', 'requestPayload_items', 'responseTime', 'message'],
     });
+    console.log(JSON.stringify(res));
 
     if (res && res.statusCode === 200) {
-      const preparedData = res.body.hits.hits.map(item => {
+      const preparedData = res.body.hits.hits.map((item) => {
         const obj = JSON.parse(item._source.message || '{}');
         const auth = obj.headers['authorization'] || '';
         switch (obj.method) {
@@ -73,7 +74,7 @@ export default async function(data: IConfigShema) {
               const value = obj.query[key];
               let qq = value;
               if (Array.isArray(value)) {
-                const q = value.map(item => `\"${item}\"`);
+                const q = value.map((item) => `\"${item}\"`);
                 qq = '[' + q.join(',') + ']';
               }
               return acc.length === 0 ? acc + `?${key}=${qq}` : acc + `&${key}=${qq}`;
