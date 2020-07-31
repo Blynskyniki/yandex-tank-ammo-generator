@@ -47,6 +47,7 @@ program
       process.exit(0);
     }
     program.help();
+    console.log('example => tank-gen-ammo -c ./config.json  -o qq -u YandexTankDev\n');
   } catch (e) {
     console.error(e);
     process.exit(1);
