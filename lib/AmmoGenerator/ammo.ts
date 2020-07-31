@@ -1,3 +1,14 @@
+/**
+ * Создание патрона
+ * @param method
+ * @param host
+ * @param path
+ * @param tag
+ * @param agent
+ * @param body
+ * @param headers
+ * @return {string}
+ */
 export function createAmmo(method: string, host: string, path: string,tag:string, agent: string, body: string,headers): string {
   function getBytes(string) {
     return  Buffer.from(string).length
@@ -27,6 +38,5 @@ export function createAmmo(method: string, host: string, path: string,tag:string
     }
   }
 
-  console.log('enc =>> ','orig ===>',tmpFile.length)
   return `${getBytes(tmpFile)+1} ${tag||''} \n`+ tmpFile + '\n\r\n';
 }

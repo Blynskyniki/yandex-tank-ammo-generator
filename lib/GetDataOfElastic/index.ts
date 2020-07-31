@@ -51,7 +51,6 @@ export default async function (data: IConfigShema) {
       size: data.limit,
       _source: ['path', 'method', 'route', 'headers_authorization', 'requestPayload_items', 'responseTime', 'message'],
     });
-    console.log(JSON.stringify(res));
 
     if (res && res.statusCode === 200) {
       const preparedData = res.body.hits.hits.map((item) => {

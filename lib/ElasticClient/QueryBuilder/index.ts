@@ -296,7 +296,6 @@ export class QueryBuilder {
     this._query.query.bool.should.length > 0 && (cond.query.bool['should'] = this._query.query.bool.should);
     this._query.size && (cond.size = this._query.size);
     (this._query as any ).sort && (cond.sort = (this._query as any ).sort);
-    // console.log('cond', JSON.stringify(cond, null, 2));
     return {
       ...cond,
       ...this._agg,
